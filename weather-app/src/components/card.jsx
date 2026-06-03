@@ -1,0 +1,18 @@
+import React from 'react';
+
+import { useWeather } from '../context/weather';
+
+
+const Card= () => {
+    const weather = useWeather(); 
+
+    return (
+        <div className="card">  
+            <img src={weather.data?.current?.condition?.icon} alt="Weather icon" />
+            <h3>{weather.data?.current?.temp_c} °C</h3>
+            <h5> {weather.data?.location?.name}, {weather.data?.location?.region}, {weather.data?.location?.country}</h5>
+        </div>
+    );
+};
+
+export default Card;
